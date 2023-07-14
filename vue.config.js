@@ -1,5 +1,9 @@
 const { defineConfig } = require('@vue/cli-service');
 
+const baseUrl = process.env.NODE_ENV === 'production'
+  ? '/gotorestik/'
+  : '/';
+
 module.exports = defineConfig({
   transpileDependencies: true,
   devServer: {
@@ -13,7 +17,5 @@ module.exports = defineConfig({
       }
     }
   },
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/gotorestik/'
-    : '/'
+  publicPath: baseUrl
 });
