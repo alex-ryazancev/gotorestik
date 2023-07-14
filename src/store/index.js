@@ -32,7 +32,7 @@ export default new Vuex.Store({
   actions: {
     async fetchRestaurants({ commit }) {
       try {
-        let response = await axios.get('/api/test/site/get-index');
+        let response = await axios.get('https://bandaumnikov.ru/api/test/site/get-index');
         commit('SET_RESTAURANTS', response.data.data);
       } catch (error) {
         console.error('Ошибка при получении данных:', error);
@@ -40,7 +40,7 @@ export default new Vuex.Store({
     },
     async getRestorauntById({ state, commit }) {
       try {
-        let response = await axios.get('/api/test/site/get-view?id='+state.idRestaurant);
+        let response = await axios.get('https://bandaumnikov.ru/api/test/site/get-view?id=' + state.idRestaurant);
         commit('SET_RANDOM_RESTAURANT', response.data.data);
       } catch (error) {
         console.error('Ошибка при получении данных:', error);

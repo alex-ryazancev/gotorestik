@@ -1,21 +1,18 @@
 const { defineConfig } = require('@vue/cli-service');
 
-const baseUrl = process.env.NODE_ENV === 'production'
-  ? '/gotorestik/'
-  : '/';
-
-module.exports = defineConfig({
-  transpileDependencies: true,
+module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'https://bandaumnikov.ru', // Замените на базовый URL вашего API
+        target: 'https://bandaumnikov.ru',
         changeOrigin: true,
         pathRewrite: {
-          '^/api': '/api' // Замените на фактический путь к конечной точке вашего API
+          '^/api': '/api'
         }
       }
     }
   },
-  publicPath: baseUrl
-});
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/gotorestik/'
+    : '/'
+};
