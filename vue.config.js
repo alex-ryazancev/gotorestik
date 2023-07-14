@@ -1,24 +1,19 @@
 const { defineConfig } = require('@vue/cli-service');
-module.exports = defineConfig({
-  transpileDependencies: true
-});
 
-module.exports = {
+module.exports = defineConfig({
+  transpileDependencies: true,
   devServer: {
     proxy: {
       '/api': {
-        target: 'https://bandaumnikov.ru', // Replace with your API base URL
+        target: 'https://bandaumnikov.ru', // Замените на базовый URL вашего API
         changeOrigin: true,
         pathRewrite: {
-          '^/api': '/api' // Replace with the actual API endpoint path
+          '^/api': '/api' // Замените на фактический путь к конечной точке вашего API
         }
       }
     }
-  }
-};
-
-module.exports = {
+  },
   publicPath: process.env.NODE_ENV === 'production'
     ? '/gotorestik/'
     : '/'
-};
+});
