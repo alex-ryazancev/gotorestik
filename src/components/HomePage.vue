@@ -114,7 +114,6 @@ export default {
   watch: {
     // если поставили флаг на бланч то обновляем рандомный рестик если в нем нет бланча ибо нефиг лишний раз пользователя напрягать
     selected(value) {
-      console.log(this.randomRestaurant.business_lunch);
       if (value === true && this.randomRestaurant.business_lunch === false) {
         this.getRandomRestoraunt();
       }
